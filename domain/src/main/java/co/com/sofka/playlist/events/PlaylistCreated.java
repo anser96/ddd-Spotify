@@ -9,12 +9,12 @@ import java.util.Set;
 public class PlaylistCreated extends DomainEvent {
     private final PlaylistName playlistName;
 
-    private final SongId song;
 
-    public PlaylistCreated(PlaylistName playlistName, SongId song) {
+
+    public PlaylistCreated(PlaylistName playlistName) {
         super("co.com.sofka.playlist.events.playlistcreated");
         this.playlistName = playlistName;
-        this.song =song;
+
 
     }
 
@@ -22,7 +22,5 @@ public class PlaylistCreated extends DomainEvent {
         return playlistName;
     }
 
-    public SongId  getSong(){
-        return  song;
-    }
+
 }

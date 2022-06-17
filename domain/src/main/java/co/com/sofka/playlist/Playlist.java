@@ -1,12 +1,14 @@
 package co.com.sofka.playlist;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.playlist.events.NameChanged;
 import co.com.sofka.playlist.events.PlaylistChange;
 import co.com.sofka.playlist.events.PlaylistCreated;
 import co.com.sofka.playlist.events.SongAsociated;
 import co.com.sofka.playlist.values.*;
 
+import java.util.List;
 import java.util.Set;
 
 public class Playlist extends AggregateEvent<PlaylistId> {
@@ -19,10 +21,16 @@ public class Playlist extends AggregateEvent<PlaylistId> {
         subscribe(new PlaylistChange(this));
     }
 
-    public Playlist(PlaylistId entityId, PlaylistName playlistName, SongId song) {
+    public Playlist(PlaylistId entityId, PlaylistName playlistName) {
         super(entityId);
         subscribe(new PlaylistChange(this));
-        appendChange(new PlaylistCreated(playlistName,song)).apply();
+        appendChange(new PlaylistCreated(playlistName)).apply();
+    }
+
+    public static Playlist from(PlaylistId playlistId, List<DomainEvent> eventsBy) {
+        var playlist = new Playlist(playlistId);
+        eventsBy.forEach(playlist::applyEvent);
+        return playlist;
     }
 
     public void addSong(SongFactory songFactory){
