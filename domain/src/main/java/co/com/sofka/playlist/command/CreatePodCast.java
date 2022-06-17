@@ -1,7 +1,6 @@
 package co.com.sofka.playlist.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.playlist.PodCast;
 import co.com.sofka.playlist.values.PodCastAutor;
 import co.com.sofka.playlist.values.PodCastEpisodios;
 import co.com.sofka.playlist.values.PodcasName;

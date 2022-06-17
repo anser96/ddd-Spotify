@@ -1,7 +1,6 @@
 package co.com.sofka.playlist;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.playlist.Usuario;
 import co.com.sofka.playlist.events.UserCreated;
 import co.com.sofka.playlist.values.FullName;
 

@@ -6,7 +6,6 @@ import co.com.sofka.playlist.values.Password;
 import co.com.sofka.playlist.values.TypeAccount;
 import co.com.sofka.playlist.values.UserName;
 
-import java.util.UUID;
 
 public class CreatedUser extends DomainEvent {
 
