@@ -1,20 +1,21 @@
 package co.com.sofka.playlist.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.playlist.SongFactory;
+import co.com.sofka.playlist.values.SongId;
 import co.com.sofka.playlist.values.PlaylistId;
 
+import java.lang.reflect.Field;
 
 public class AgregateSong extends Command {
-    private final SongFactory songFactory;
-    private final PlaylistId playlistId;
+    private final PlaylistId playListId;
+    private final SongId songId;
 
-    public AgregateSong(SongFactory songFactory, PlaylistId playlistId){
-        this.songFactory = songFactory;
-        this.playlistId = playlistId;
+    public AgregateSong(PlaylistId playlist, SongId songId){
+        this.playListId = playlist;
+        this.songId = songId;
     }
 
-    public SongFactory getSongFactory() { return songFactory; }
+    public PlaylistId getPlayListId() { return playListId; }
 
-    public PlaylistId getPlaylistId() { return playlistId; }
+    public SongId getSongId() { return songId; }
 }

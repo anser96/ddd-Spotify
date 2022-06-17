@@ -4,15 +4,15 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class AccountAsociate implements ValueObject<String> {
-    private final String value;
+public class AccountAsociate implements ValueObject<CuentaId> {
+    private final CuentaId value;
 
-    public AccountAsociate(String value){
+    public AccountAsociate(CuentaId value){
         this.value = Objects.requireNonNull(value);
 
     }
 
-    public String value() {
+    public CuentaId value() {
         return value;
     }
 }

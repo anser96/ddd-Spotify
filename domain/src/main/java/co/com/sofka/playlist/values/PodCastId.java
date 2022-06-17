@@ -7,8 +7,6 @@ public class PodCastId extends Identity {
         super(value);
     }
 
-    public PodCastId(){}
-
     public static PodCastId of(String value){
         return new PodCastId(value);
     }

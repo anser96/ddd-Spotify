@@ -2,13 +2,15 @@ package co.com.sofka.playlist;
 
 import co.com.sofka.domain.generic.EventChange;
 import co.com.sofka.playlist.events.PlaylistCreated;
-import co.com.sofka.playlist.values.SongId;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlaylistChange extends EventChange {
     public PlaylistChange(Playlist playlist){
         apply((PlaylistCreated event)->{
             playlist.playlistName = event.getPlaylistName();
-            playlist.song = (SongId) event.getSong();
+            playlist.song = new HashSet<>();
         });
     }
 }

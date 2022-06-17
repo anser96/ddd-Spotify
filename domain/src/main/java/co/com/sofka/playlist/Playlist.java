@@ -5,10 +5,7 @@ import co.com.sofka.playlist.events.NameChanged;
 import co.com.sofka.playlist.events.PlaylistChange;
 import co.com.sofka.playlist.events.PlaylistCreated;
 import co.com.sofka.playlist.events.SongAsociated;
-import co.com.sofka.playlist.values.PlaylistId;
-import co.com.sofka.playlist.values.PlaylistName;
-import co.com.sofka.playlist.values.SongId;
-import co.com.sofka.playlist.values.CuentaId;
+import co.com.sofka.playlist.values.*;
 
 import java.util.Set;
 
@@ -30,9 +27,9 @@ public class Playlist extends AggregateEvent<PlaylistId> {
 
     public void addSong(SongFactory songFactory){
         songFactory.songs()
-                .forEach(lesson ->
+                .forEach(song ->
                         appendChange(
-                                new LessonAdded(lesson.identity(),  lesson.content(), lesson.category(), lesson.lessonType())
+                                new SongAsociated(song.getSongGenre(), song.getSongComposer(), song.SongDuration(), song.SongAlbum(), song.songDate(), song.songArtist() )
                         ).apply()
                 );
     }
@@ -40,7 +37,5 @@ public class Playlist extends AggregateEvent<PlaylistId> {
     public void cambiarNombre(PlaylistName playlistName){
         appendChange(new NameChanged(playlistName)).apply();
     }
-    public void cuentaAsosciada(CuentaId cuentaId){
-        appenChange(new AccountAsociate(cuentaId)).apply();
-    }
+
 }

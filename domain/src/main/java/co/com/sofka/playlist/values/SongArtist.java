@@ -7,7 +7,7 @@ import java.util.Objects;
 public class SongArtist implements ValueObject<String>{
     private final String value;
 
-    public SongGender(String value){
+    public SongArtist(String value){
         this.value = Objects.requireNonNull(value);
     }
 
